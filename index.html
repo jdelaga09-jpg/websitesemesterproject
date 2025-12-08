@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Pocket Knife - Home</title>
+    <style>
+:root {
+    --primary: #007bff;
+    --dark: #343a40;
+    --light: #f8f9fa;
+    --success: #28a745;
+    --danger: #dc3545;
+    --text: #212529;
+    --text-light: #6c757d;
+    --border: #dee2e6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #17a2b8;
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+[class*='col-'] {
+    flex: 1;
+    padding: 0;
+}
+
+.col-md-3 { flex: 0 0 calc(25% - 1.125rem); }
+.col-md-4 { flex: 0 0 calc(33.333% - 1rem); }
+.col-md-6 { flex: 0 0 calc(50% - 0.75rem); }
+.col-lg-3 { flex: 0 0 calc(25% - 1.125rem); }
+
+.text-center { text-align: center; }
+.text-white { color: white; }
+.bg-primary { background: var(--primary); }
+.bg-dark { background: var(--dark); }
+.bg-light { background: var(--light); }
+.my-5 { margin: 3rem 0; }
+.mb-5 { margin-bottom: 3rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.p-4 { padding: 1.5rem; }
+.py-5 { padding: 2rem 0; }
+.g-4 { gap: 1.5rem; }
+
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    background: var(--dark);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.mx-auto {
+    margin: 0 auto;
+}
+
+.navbar-collapse {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.8);
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.cart-link {
+    font-weight: 600;
+    color: var(--danger);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.badge {
+    background: var(--danger);
+    color: white;
+    padding: 0.25rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.header-section {
+    background: var(--primary);
+    color: white;
+    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border-bottom: 4px solid var(--primary);
+}
+
+.header-section h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.header-section .lead {
+    margin: 0;
+    font-size: 1.2rem;
+    flex: 0 1 auto;
+}
+
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    border: none;
+    border-radius: 5px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-success {
+    background: var(--success);
+    color: white;
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: white;
+}
+
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.table thead {
+    background: var(--dark);
+    color: white;
+}
+
+.table th,
+.table td {
+    padding: 1rem 0.75rem;
+    text-align: left;
+    border: 1px solid var(--border);
+}
+
+.table tbody tr:hover {
+    background: var(--light);
+}
+
+.table-responsive {
+    border-radius: 8px;
+    overflow: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.form-control,
+.form-select {
+    border: 2px solid var(--border);
+    padding: 0.7rem;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.form-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.list-unstyled {
+    list-style: none;
+    padding: 0;
+}
+
+.list-unstyled li {
+    margin-bottom: 0.75rem;
+    padding-left: 0;
+}
+
+.benefits-section {
+    border-radius: 8px;
+    padding: 2rem !important;
+}
+
+.benefits-section h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.featured-products {
+    width: 100%;
+}
+
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 2rem;
+    border-top: 3px solid var(--primary);
+    margin-top: auto;
+}
+
+footer h5 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: #ccc;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .navbar-collapse {
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .navbar-nav {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .cart-link {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .header-section {
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+    
+    .header-section h1 {
+        font-size: 1.5rem;
+    }
+    
+    .row {
+        gap: 1rem;
+    }
+    
+    [class*='col-'] {
+        flex: 0 0 100%;
+    }
+    
+    footer {
+        text-align: center;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <!-- Logo on the left -->
+            <a class="navbar-brand" href="index.html">
+                <img src="file:///c:/Users/jdela/OneDrive/Desktop/COSC1315%20Intro%20to%20Computer%20Programming/Webpage%20Project/websitesemesterproject/photos/logo.jpg" alt="Logo" class="logo-img">
+                <strong>Perfect Pocket Knife</strong>
+            </a>
+
+            <!-- Toggle button for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Center navigation links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Cart link on the right -->
+            <a class="nav-link cart-link" href="cart.html">
+                🛒 Cart <span class="badge bg-danger" id="cartBadge">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="header-section bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4">Welcome to Perfect Pocket Knife</h1>
+            <p class="lead">Find your perfect blade</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Description Paragraph -->
+        <section class="mb-5">
+            <p class="lead text-center">
+                Welcome to Perfect Pocket Knife. We help you find the right pocket knife for what you need. We have lots of knives to choose from, and we can help you pick one that works for you. We sell quality knives at fair prices.
+            </p>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="featured-products mb-5">
+            <h2 class="text-center mb-4">Featured Knives</h2>
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card product-card h-100">
+                        <img src="file:///c:/Users/jdela/OneDrive/Desktop/COSC1315%20Intro%20to%20Computer%20Programming/Webpage%20Project/websitesemesterproject/photos/folding-knife.jpg" class="card-img-top" alt="Folding Blade Knife">
+                        <div class="card-body">
+                            <h5 class="card-title">Folding Blade Knife</h5>
+                            <p class="card-text">Good everyday knife, easy to carry</p>
+                            <p class="price">$24.99</p>
+                            <a href="products.html#folding" class="btn btn-primary btn-sm">View Details</a>
+                            <button class="btn btn-success btn-sm add-to-cart" data-product="Folding Blade Knife" data-price="24.99">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card product-card h-100">
+                        <img src="file:///c:/Users/jdela/OneDrive/Desktop/COSC1315%20Intro%20to%20Computer%20Programming/Webpage%20Project/websitesemesterproject/photos/fixed-blade-knife.jpg" class="card-img-top" alt="Fixed Blade Knife">
+                        <div class="card-body">
+                            <h5 class="card-title">Fixed Blade Knife</h5>
+                            <p class="card-text">Strong and durable, great for camping</p>
+                            <p class="price">$34.99</p>
+                            <a href="products.html#fixed" class="btn btn-primary btn-sm">View Details</a>
+                            <button class="btn btn-success btn-sm add-to-cart" data-product="Fixed Blade Knife" data-price="34.99">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card product-card h-100">
+                        <img src="file:///c:/Users/jdela/OneDrive/Desktop/COSC1315%20Intro%20to%20Computer%20Programming/Webpage%20Project/websitesemesterproject/photos/serrated-knife.jpg" class="card-img-top" alt="Serrated Edge Knife">
+                        <div class="card-body">
+                            <h5 class="card-title">Serrated Edge Knife</h5>
+                            <p class="card-text">Great for cutting rope and materials</p>
+                            <p class="price">$29.99</p>
+                            <a href="products.html#serrated" class="btn btn-primary btn-sm">View Details</a>
+                            <button class="btn btn-success btn-sm add-to-cart" data-product="Serrated Edge Knife" data-price="29.99">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card product-card h-100">
+                        <img src="file:///c:/Users/jdela/OneDrive/Desktop/COSC1315%20Intro%20to%20Computer%20Programming/Webpage%20Project/websitesemesterproject/photos/multi-tool.jpg" class="card-img-top" alt="Multi-Tool Knife">
+                        <div class="card-body">
+                            <h5 class="card-title">Multi-Tool Knife</h5>
+                            <p class="card-text">Has extra tools built in</p>
+                            <p class="price">$44.99</p>
+                            <a href="products.html#multitool" class="btn btn-primary btn-sm">View Details</a>
+                            <button class="btn btn-success btn-sm add-to-cart" data-product="Multi-Tool Knife" data-price="44.99">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section with Lists -->
+        <section class="benefits-section mb-5 bg-light p-4 rounded">
+            <h3>Why shop here</h3>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h5>Why us</h5>
+                    <ul class="list-unstyled">
+                        <li>✓ Quality knives</li>
+                        <li>✓ Good prices</li>
+                        <li>✓ Fast shipping</li>
+                        <li>✓ 30 days to return</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>How to buy</h5>
+                    <ol>
+                        <li>Find a knife you like</li>
+                        <li>Put it in your cart</li>
+                        <li>Pay for it</li>
+                        <li>Get your knife and enjoy</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <!-- Contact Information -->
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Information</h5>
+                    <p>
+                        📧 Email: <a href="mailto:info@perfectpocketknife.com">info@perfectpocketknife.com</a><br>
+                        📞 Phone: 1-800-POCKET-K<br>
+                        📍 Address: 456 Fake St. Mission, TX 78575
+                    </p>
+                </div>
+
+                <!-- Social Media -->
+                <div class="col-md-4 mb-4">
+                    <h5>Follow Us</h5>
+                    <p>
+                        <a href="https://facebook.com" class="social-link me-3">Facebook</a><br>
+                        <a href="https://twitter.com" class="social-link me-3">Twitter</a><br>
+                        <a href="https://instagram.com" class="social-link me-3">Instagram</a><br>
+                        <a href="https://linkedin.com" class="social-link me-3">LinkedIn</a>
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="products.html" class="footer-link">Products</a></li>
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <hr class="bg-light">
+            <div class="text-center">
+                <p>&copy; 2025 Perfect Pocket Knife. All rights reserved. | <a href="#" class="footer-link">Privacy Policy</a> | <a href="#" class="footer-link">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
